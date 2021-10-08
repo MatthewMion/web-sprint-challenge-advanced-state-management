@@ -108,7 +108,7 @@ const mapActionsToProps = {
 };
 export default connect(mapStateToProps, mapActionsToProps)(AddForm);
 
-//Task List:
+//Task List: X
 //1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.
 //2. Replace all instances of the errorMessage static variable with your error message state value.
 //3. Within the handleSubmit function, replace the static assignment to errorMessage with a call to the setError action. Test that an error is displayed when this validation code fails.

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { fetchSmurf } from "./actions";
+import { connect } from "react-redux";
 import AddForm from "./components/AddForm";
 import SmurfList from "./components/SmurfList";
 import Header from "./components/Header";
@@ -8,7 +9,7 @@ import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    fetchSmurf();
+    this.props.fetchSmurf();
   }
   render() {
     return (
@@ -24,7 +25,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, { fetchSmurf })(App);
 
 //Task List: X
 //1. Connect the fetchSmurfs actions to the App component.
