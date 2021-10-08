@@ -9,7 +9,7 @@ import {
 export const initialState = {
   smurfs: [],
   isLoading: false,
-  error: "",
+  errorText: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -19,21 +19,21 @@ const reducer = (state = initialState, action) => {
         ...state,
         smurfs: [],
         isLoading: true,
-        error: "",
+        errorText: "",
       };
     case FETCH_SMURF_SUCCESS:
       return {
         ...state,
         smurfs: action.payload,
         isLoading: false,
-        error: "",
+        errorText: "",
       };
     case FETCH_SMURF_FAIL:
       return {
         ...state,
         smurfs: [],
         isLoading: false,
-        error: action.payload,
+        errorText: action.payload,
       };
     case ADD_SMURF:
       return {
@@ -43,7 +43,7 @@ const reducer = (state = initialState, action) => {
     case ERROR:
       return {
         ...state,
-        error: action.payload,
+        errorText: action.payload,
       };
     default:
       return state;

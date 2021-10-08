@@ -19,17 +19,13 @@ const AddForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (state.name === "" || state.position === "" || state.nickname === "") {
-      props.setError("You must enter information in all fields");
-    } else {
-      props.addSmurf({
-        name: state.name,
-        position: state.position,
-        nickname: state.nickname,
-        description: state.description,
-      });
-      console.log(props.smurfs);
-    }
+    props.addSmurf({
+      name: state.name,
+      position: state.position,
+      nickname: state.nickname,
+      description: state.description,
+    });
+    console.log(props.smurfs);
   };
 
   return (
@@ -76,13 +72,13 @@ const AddForm = (props) => {
             id="description"
           />
         </div>
-        {props.error && (
+        {props.errorText && (
           <div
             data-testid="errorAlert"
             className="alert alert-danger"
             role="alert"
           >
-            Error: {props.error}
+            Error: {props.errorText}
           </div>
         )}
         <button>Submit Smurf</button>
@@ -95,7 +91,7 @@ const mapStateToProps = (state) => {
   return {
     ...state,
     smurfs: state.smurfs,
-    error: state.error,
+    errorText: state.errorText,
   };
 };
 
