@@ -2,6 +2,8 @@ import {
   FETCH_SMURF_START,
   FETCH_SMURF_SUCCESS,
   FETCH_SMURF_FAIL,
+  ADD_SMURF,
+  ERROR,
 } from "../actions";
 
 export const initialState = {
@@ -31,6 +33,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         smurfs: [],
         isLoading: false,
+        error: action.payload,
+      };
+    case ADD_SMURF:
+      return {
+        ...state,
+        smurfs: [...state.smurfs, { name: action.payload }],
+      };
+    case ERROR:
+      return {
+        ...state,
         error: action.payload,
       };
     default:
