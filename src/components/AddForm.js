@@ -10,9 +10,6 @@ const AddForm = (props) => {
     description: "",
   });
 
-  //remove when error state is added
-  //   const errorMessage = "test";
-
   const handleChange = (e) => {
     setState({
       ...state,
