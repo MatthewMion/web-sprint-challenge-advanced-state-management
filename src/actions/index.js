@@ -15,7 +15,7 @@ export const fetchSmurf = () => (dispatch) => {
       dispatch(setError(""));
     })
     .catch((err) => {
-      dispatch({ type: FETCH_SMURF_FAIL, payload: err });
+      dispatch(setError(err.response.data.Error));
     });
 };
 
