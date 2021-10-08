@@ -103,8 +103,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapActionsToProps = {
-  setError: setError,
-  addSmurf: addSmurf,
+  setError,
+  addSmurf,
 };
 export default connect(mapStateToProps, mapActionsToProps)(AddForm);
 

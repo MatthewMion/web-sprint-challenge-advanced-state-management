@@ -12,7 +12,6 @@ export const fetchSmurf = () => (dispatch) => {
   axios
     .get("http://localhost:3333/smurfs")
     .then((res) => {
-      console.log(res);
       dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
     })
     .catch((err) => {
@@ -22,13 +21,9 @@ export const fetchSmurf = () => (dispatch) => {
 
 export const addSmurf = (smurf) => (dispatch) => {
   dispatch({ type: ADD_SMURF });
-
-  axios
-    .post("http://localhost:3333/smurfs", smurf)
-
-    .catch((err) => {
-      dispatch({ type: FETCH_SMURF_FAIL, payload: err });
-    });
+  axios.post("http://localhost:3333/smurfs", smurf).catch((err) => {
+    dispatch({ type: FETCH_SMURF_FAIL, payload: err });
+  });
 };
 
 export const setError = (err) => {
